@@ -1,75 +1,75 @@
+//requiring the Word constructor 
+//and the inquirer npm package
 var Word = require("./word.js");
 var inquirer = require("inquirer");
 
-breakfastFoods = ["pancakes", "bacon", "syrup", "waffles", "oatmeal", "hashbrowns", "coffee", "overeasy",
-"cereal", "bagels", "donuts", "sausage", "toast"];
+//an array of words to choose from
+var breakfastFoods = ["pancakes", "bacon", "syrup"];
 
-var random = breakfastFoods[Math.floor(Math.random() * breakfastFoods.length)];
+//a variable that will later become our Word object
+var food;
 
-var food = new Word(random);
-
-console.log(food.word);
-
-food.newWord();
-food.guessString();
-
-
-
-// console.log(food.array);
-
-// for (var f = 0; f < food.array.length; f++) {
-//     if (food.array[f].guessed === false) {
-//         wordComplete = false;
-//     }
-// }
-
-
-
-
-
-
-
-var askQuestion = function(){
-    if (food.array.filter(e => e.guessed === false).length > 0) {
-inquirer   
-    .prompt([
-        {
-            type: "input",
-            message: "Choose a letter!",
-            name: "guess"
+//the askQuestion function
+var askQuestion = function () {
+    //checks to see if there are any guesses remaining
+    if (food.remaining > 0) {
+        //checks to see if any of the guessed items in the Letter objects in the array are false (as in there are still letters that haven't been guessed)
+        if (food.array.filter(e => e.guessed === false).length > 0) {
+            //run the inquirer package asking the user to choose a letter
+            inquirer
+                .prompt([
+                    {
+                        type: "input",
+                        message: "Choose a letter!",
+                        name: "guess"
+                    }
+                ]).then(function (inquirerResponse) {
+                    //run the guessCheck function which sends the input to see if the letter has been guessed
+                    food.guessCheck(inquirerResponse.guess);
+                    //run the guessString function which will return the new string with the letter in it (since the guessCheck changes the guessed to true)
+                    food.guessString();
+                    //run the askQuestion function again
+                    askQuestion();
+                });
+        } else {
+            //if there are no more letters to guess
+            console.log("You got it!");
+            //rest the game to choose a new word
+            gameReset();
         }
-    ]).then(function (inquirerResponse) {
-        
-            /* vendors contains the element we're looking for */
-            food.guessCheck(inquirerResponse.guess);
-            food.guessString();
-          askQuestion(); 
-    });
-} else {
-    console.log("You got it!");
-}
-
+    } else {
+        //if there are no guesses remaining
+        console.log("You lose! Try a new word!");
+        //resets the game
+        gameReset();
+    }
 };
 
-askQuestion();
+//gameReset function resets the game and starts it
+function gameReset() {
+    //checks to see if there are any items left in the breakfastFoods array
+    if (breakfastFoods.length > 0) {
+    //a variable to hold the randomly selected word
+    var random = breakfastFoods[Math.floor(Math.random() * breakfastFoods.length)];
+    //finds the index of the chosen word
+    var index = breakfastFoods.indexOf(random);
+    //splice the word from the array
+    if (index > -1) {
+        breakfastFoods.splice(index, 1);
+    }
+    //a new Word object using the randomly chosen word
+    food = new Word(random, 9);
+    //running the newWord function which creates all the Letter objects
+    food.newWord();
+    //running the guessString object which returns the blank spaces
+    food.guessString();
+    //running the initial askQuestion function for the first input
+    askQuestion();
+    } else {
+        //game over if all words in the array have been chosen
+        console.log("Game Over");
+    }
+}
 
-
-
-
-// we only run this code once the last iteration has been completed
-// checking the condition before each iteration
-
-// var count = 0; (outside function)
-
-// var askQuestion = function() {
-// if (count<5)
-// prompts
-
-// then(function(answers) {
-// answers.etc
-// prorgrammerArray.push(newProgrammer);
-// increment
-// askQuestion(); 
-// }
-
-// store each object in an array
+//starting the game
+gameReset();
