@@ -14,6 +14,6 @@ function Letter(item, guessed) {
             this.guessed = true;
         }
     }
-}
+};
 
 module.exports = Letter;
