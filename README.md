@@ -34,14 +34,13 @@ This node application is a word guess game. It selects a random word from an arr
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
-![News Scraper](./public/images/newscraper-pacific-journey.png "News Scraper")
-
-
+To watch the demonstration video, please click the following link:
+[https://drive.google.com/file/d/1hwAIlh1Q5c0y5c-ECf5cDcTccWEMtzMA/view](https://drive.google.com/file/d/1hwAIlh1Q5c0y5c-ECf5cDcTccWEMtzMA/view)
 
 ### Built With
-* [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML)
-* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-* [Materialize](https://materializecss.com/)
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [Node.js](https://nodejs.org)
+* 
 
 <!-- GETTING STARTED -->
 
@@ -158,6 +157,6 @@ https://drive.google.com/file/d/1hwAIlh1Q5c0y5c-ECf5cDcTccWEMtzMA/view
  - inquirer
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTg4NTE5ODM3LC0xNjQxNTI2MDY3LC0xOT
-g3MDkwMzk2XX0=
+eyJoaXN0b3J5IjpbLTE4MDkwNTU2NzcsLTE2NDE1MjYwNjcsLT
+E5ODcwOTAzOTZdfQ==
 -->
