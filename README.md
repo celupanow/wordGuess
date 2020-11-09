@@ -120,10 +120,10 @@ Project Link: [https://celupanow.github.io/wordGuess/](https://celupanow.github.
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 
-[linkedin-url]: https://linkedin.com/in/celupanow
+[linkedin-url]: https://www.linkedin.com/in/christinalupanow
 
 [product-screenshot]: images/screenshot.png
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyNjY5NTgxOCwtMTY0MTUyNjA2NywtMT
-k4NzA5MDM5Nl19
+eyJoaXN0b3J5IjpbLTE0NTQ0MDE2NDAsMTkyNjY5NTgxOCwtMT
+Y0MTUyNjA2NywtMTk4NzA5MDM5Nl19
 -->
